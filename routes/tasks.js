@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
     }
 });
 
+
 //  SUBMITS A POST
 router.post('/', async (req, res) => {
     const newTask = new Task({
         task: req.body.task,
     });
-
     try {
         const savedTask = await newTask.save();
         res.json(savedTask);
@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
         res.json({ message: err })
     }
 });
+
 
 // GETS BACK A SPECIFIC TASK
 router.get('/:taskId', async (req, res) => {
@@ -39,6 +40,7 @@ router.get('/:taskId', async (req, res) => {
         res.json({ message: err });
     }
 });
+
 
 // DELETE A TASK
 router.delete('/:taskId', async (req, res) => {
@@ -62,10 +64,6 @@ router.delete('/', async (req, res) => {
         res.json({ message: err })
     }
 })
-
-
-
-
 
 
 // Edit a Task
