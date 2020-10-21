@@ -14,11 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 const tasksRoute = require('./routes/tasks');
 const homeRoute = require('./routes/home');
 
-
-app.use(cors());
-app.use('/tasks', tasksRoute);
-app.use('/', homeRoute);
-
 //Dummy Test
 
 app.get('/', (req, res) => {
@@ -26,6 +21,12 @@ app.get('/', (req, res) => {
         message: 'Hello world'
     });
 });
+
+app.use(cors());
+app.use('/tasks', tasksRoute);
+app.use('/', homeRoute);
+
+
 
 
 // CONNECT TO DB
