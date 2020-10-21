@@ -14,6 +14,14 @@ app.use(express.urlencoded({ extended: true }));
 const tasksRoute = require('./routes/tasks');
 const homeRoute = require('./routes/home');
 
+//Dummy Test
+
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Hello world'
+    });
+});
+
 app.use(cors());
 app.use('/tasks', tasksRoute);
 app.use('/', homeRoute);
@@ -22,11 +30,11 @@ app.use('/', homeRoute);
 // CONNECT TO DB
 
 mongoose.connect(
-    process.env.DB_CONNECTION,
+    process.env.MONGODB_URI,
     { useUnifiedTopology: true },
     () => console.log('Connected to DB!'),
 );
 
 app.listen(PORT, () => {
-    console.log('Server is running on port 4059');
+    console.log(`Server is running on port ${PORT}`);
 });
