@@ -18,11 +18,11 @@ const homeRoute = require('./routes/home');
 
 //Dummy Test
 
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello world'
-    });
-});
+// app.get('/', (req, res) => {
+//     res.json({
+//         message: 'Hello world'
+//     });
+// });
 
 app.use(cors());
 app.use('/tasks', tasksRoute);
