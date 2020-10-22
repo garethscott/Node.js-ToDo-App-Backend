@@ -34,7 +34,7 @@ app.use('/', homeRoute);
 // CONNECT TO DB
 
 mongoose.connect(
-    process.env.MONGODB_URI,
+    process.env.DB_CONNECTION,
     { useUnifiedTopology: true },
     () => console.log('Connected to DB!'),
 );
